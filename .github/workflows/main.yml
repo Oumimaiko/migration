@@ -1,0 +1,16 @@
+name: deploy amplify
+
+on:
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    steps:            
+      - name: depliy amplify
+        if: always()
+        run: |
+          curl -X POST -d {} "https://webhooks.amplify.ap-northeast-1.amazonaws.com/prod/webhooks?id=6f07bd5e-6662-433d-9dee-93877e56898c&token=2YUhWKKUqoYEPvC2I9AB2AZjDR8idD4Syz5G8YZt2Hg&amp;operation=startbuild" -H "Content-Type:application/json"
